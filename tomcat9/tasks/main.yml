@@ -1,0 +1,8 @@
+---
+# tasks file for tomcat9
+
+- name: configuring tomcat9
+  include: "{{item}}"
+  with_items:
+    - install.yml
+    - configure.yml

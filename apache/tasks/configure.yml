@@ -1,0 +1,19 @@
+---
+- name: configuring apache2
+  copy:
+    src: index.html
+    dest: /var/www/html
+  when: ansible_distribution == "Ubuntu"    
+  notify: restart apache 
+- name: configuring httpd
+  copy:
+    src: index.html
+    dest: /var/www/html
+  when: ansible_distribution == "RedHat"
+- name: restarting httpd
+  yum:
+    name: httpd
+    state: present
+    update_cache: yes
+  when: ansible_distribution == "RedHat"   
+...      

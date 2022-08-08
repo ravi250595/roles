@@ -1,0 +1,5 @@
+---
+- name: configuring tomcat9
+  hosts: all
+  roles:
+    - tomcat9
